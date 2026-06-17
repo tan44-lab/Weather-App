@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <div class="app">
+    <div class="search-wrap">
+      <input type="text" id="cityInput" placeholder="Search city…" autocomplete="off" />
+      <button id="searchBtn" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </button>
+    </div>
+
+    <button class="loc-btn" id="locBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+        <circle cx="12" cy="9" r="2.5"/>
+      </svg>
+      Use my current location
+    </button>
+
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      Fetching weather…
+    </div>
+
+    <div class="error-card" id="errorCard">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      <p id="errorMsg">City not found. Try another name.</p>
+    </div>
+
+    <div class="main-card" id="mainCard">
+      <div class="city-row">
+        <svg class="pin-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        <span class="city-name" id="cityName"></span>
+      </div>
+      <div class="city-date" id="cityDate"></div>
+      <div class="weather-main">
+        <div>
+          <div class="temp-big" id="tempBig">—<sup>°C</sup></div>
+          <div class="desc-text" id="descText"></div>
+        </div>
+        <div class="weather-icon-wrap">
+          <img id="mainIcon" src="" alt="weather icon" />
+        </div>
+      </div>
+      <div class="details-row">
+        <div class="detail-chip">
+          <span class="label">Humidity</span>
+          <span class="value" id="humVal">—</span>
+        </div>
+        <div class="detail-chip">
+          <span class="label">Wind</span>
+          <span class="value" id="windVal">—</span>
+        </div>
+        <div class="detail-chip">
+          <span class="label">Feels like</span>
+          <span class="value" id="feelsVal">—</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="forecast-heading" id="forecastHeading">3-day forecast</p>
+    <div class="forecast-grid">
+      <div class="forecast-card" id="fc0">
+        <p class="fc-day" id="fc0day"></p>
+        <div class="fc-icon"><img id="fc0icon" src="" alt="" /></div>
+        <div class="fc-temps"><span id="fc0hi"></span><span class="low" id="fc0lo"></span></div>
+        <div class="fc-desc" id="fc0desc"></div>
+      </div>
+      <div class="forecast-card" id="fc1">
+        <p class="fc-day" id="fc1day"></p>
+        <div class="fc-icon"><img id="fc1icon" src="" alt="" /></div>
+        <div class="fc-temps"><span id="fc1hi"></span><span class="low" id="fc1lo"></span></div>
+        <div class="fc-desc" id="fc1desc"></div>
+      </div>
+      <div class="forecast-card" id="fc2">
+        <p class="fc-day" id="fc2day"></p>
+        <div class="fc-icon"><img id="fc2icon" src="" alt="" /></div>
+        <div class="fc-temps"><span id="fc2hi"></span><span class="low" id="fc2lo"></span></div>
+        <div class="fc-desc" id="fc2desc"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
